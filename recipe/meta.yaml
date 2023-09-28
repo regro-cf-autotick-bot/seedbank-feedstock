@@ -4,7 +4,7 @@
 # Using the name variable with the URL in line 14 is convenient
 # when copying and pasting from another recipe, but not really needed.
 {% set name = "seedbank" %}
-{% set version = "0.1.2" %}
+{% set version = "0.1.3" %}
 
 package:
   name: {{ name|lower }}
@@ -12,7 +12,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 2c7534c4bd34bfad65bcf71489b6eccd0bc08980670c016924afb51be5bf5417
+  sha256: a859761f1a7545c8cf24a6c19af80c25b90294723a9a20f6c220cac2b6084586
 
 build:
   noarch: python
