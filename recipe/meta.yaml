@@ -11,21 +11,21 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: a859761f1a7545c8cf24a6c19af80c25b90294723a9a20f6c220cac2b6084586
 
 build:
   noarch: python
-  number: 0
+  number: 1
   script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
   host:
-    - python >=3.6
+    - python {{ python_min }}
     - pip
     - flit-core >=2
   run:
-    - python >=3.6
+    - python >={{ python_min }}
     - numpy >=1.17
     - anyconfig >=0.12
 
@@ -36,6 +36,7 @@ test:
     - seedbank
   requires:
     - pip
+    - python {{ python_min }}
   commands:
     - pip check
 
